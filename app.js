@@ -18,9 +18,12 @@ function timer(){
         sec = 0;
     }
 }
-function start(){
- interval = setInterval(timer,10)
-}
+function start() {
+    if (!interval) {
+      offset = Date.now();
+      interval = setInterval(timer,10);
+    }
+  }
 function stop(){
     clearInterval(interval)
 }
